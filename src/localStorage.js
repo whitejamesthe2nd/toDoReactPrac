@@ -6,6 +6,17 @@ export const loadState = () => {
   // TODO: If the state was found, return the state (parsed into JavaScript)
 
   // TODO: Catch any errors with a `console.warn` statement and return undefined
+  try {
+    const storedState = localStorage.getItem(STATE_KEY);
+    if(storedState){
+      return JSON.parse(storedState);
+    }else{
+      return undefined;
+    }
+
+  } catch (error) {
+    console.warn(error);
+  }
 };
 
 export const saveState = (state) => {
@@ -13,4 +24,10 @@ export const saveState = (state) => {
   // TODO: Set the JSON string into local storage
 
   // TODO: Catch any errors with a `console.warn` statement
+  try {
+    let stringed = JSON.stringify(state);
+    localStorage.setItem(STATE_KEY, stringed);
+  } catch (error) {
+    console.warn(error)
+  }
 };
