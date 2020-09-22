@@ -12,6 +12,7 @@ import {createTask, deleteTask} from './actions/taskActions';
 window.store = store;
 window.createTask = createTask;
 window.deleteTask = deleteTask;
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
